@@ -7,22 +7,33 @@ Parameter;
 
 
 %% Bereiche für das Netz erzeugen
+x = 5;
+y = 2;
+l1 = 2;
+l2 = 1;
 geo1 = [0 0;
-        2 0;
-        2 2;
-        0 2];
+        l1 0;
+        l1 y;
+        0 y];
     
-geo2 = [2 0;
-        4 0;
-        4 2;
-        2 2]
+geo2 = [l1 0;
+        l1+l2 0;
+        l1+l2 y;
+        l1 y];
+    
+geo3 = [l1+l2 0;
+        x 0;
+        x y;
+        l1+l2 y];
 
     
 %% Knoten erzeugen
-N = KnotenGenerieren(geo1,5,5,'e');
-M = KnotenGenerieren(geo2,13,13,'l');
+U = KnotenGenerieren(geo1,7,3,'e');
+V = KnotenGenerieren(geo2,7,7,'l');
+W = KnotenGenerieren(geo3,7,3,'e');
 
 
+N = PunkteSortieren([U; V; W])
 
 
 %% Plot 
@@ -30,8 +41,8 @@ figure(1)
 hold on 
 patch(geo1(:,1),geo1(:,2),'c')
 patch(geo2(:,1),geo2(:,2),'y')
+patch(geo3(:,1),geo3(:,2),'c')
 plot(N(:,1),N(:,2),'or')
-plot(M(:,1),M(:,2),'or')
 axis equal
 
 

@@ -21,7 +21,7 @@ function N = KnotenGenerieren(rect,n,m,boundry)
     end
     
     nodes = m * n;
-    N = zeros(nodes,2)
+    %N = zeros(nodes,2);
     y = 0;
 
     % Knotenposition in X-Richtung generieren 
@@ -42,7 +42,7 @@ function N = KnotenGenerieren(rect,n,m,boundry)
 
     if boundry == 'l'       % Überflüssige Knoten löschen    
         c = 0;
-        for k=1:n*3:nodes
+        for k=1:m*3:nodes
             N(k-c,:) = [];
             c = c+1;
         end
