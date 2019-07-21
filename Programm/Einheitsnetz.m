@@ -19,8 +19,8 @@ geo2 = [2 0;
 
     
 %% Knoten erzeugen
-N = KnotenGenerieren(geo1,5,5);
-M = KnotenGenerieren(geo2,13,13);
+N = KnotenGenerieren(geo1,5,5,'e');
+M = KnotenGenerieren(geo2,13,13,'l');
 
 
 
